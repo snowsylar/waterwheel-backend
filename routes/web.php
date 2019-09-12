@@ -22,3 +22,12 @@ Route::get('greeting', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/foo', function () {
+    $exitCode = Artisan::call('email:send', [
+        'user' => 1, '--queue' => 'default'
+    ]);
+
+    var_dump($exitCode);
+
+    //
+});
