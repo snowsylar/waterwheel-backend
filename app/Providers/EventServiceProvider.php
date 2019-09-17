@@ -18,6 +18,28 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        'App\Events\OrderShipped' => [
+            'App\Listeners\SendShipmentNotification',
+        ],
+        'App\Events\ServerCreated' => [
+            'App\Listeners\LogServerCreated',
+        ],
+        'Illuminate\Cache\Events\CacheHit' => [
+            'App\Listeners\LogCacheHit',
+        ],
+        'Illuminate\Cache\Events\CacheMissed' => [
+            'App\Listeners\LogCacheMissed',
+        ],
+        'Illuminate\Cache\Events\KeyForgotten' => [
+            'App\Listeners\LogKeyForgotten',
+        ],
+        'Illuminate\Cache\Events\KeyWritten' => [
+            'App\Listeners\LogKeyWritten',
+        ],
+    ];
+
+    protected $subscribe = [
+        'App\Listeners\UserEventSubscribe',
     ];
 
     /**

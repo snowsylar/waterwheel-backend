@@ -14,13 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('greeting', function () {
     return 'Greeting';
 });
-
+Route::get('test', 'TestController@index')->name('test');
+Route::get('setCache', 'TestController@setCache')->name('setCache');
+Route::get('getCache', 'TestController@getCache')->name('getCache');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/foo', function () {
     $exitCode = Artisan::call('email:send', [
